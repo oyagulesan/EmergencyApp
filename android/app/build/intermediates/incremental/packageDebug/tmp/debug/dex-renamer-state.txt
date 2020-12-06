@@ -1,4 +1,0 @@
-#Tue Sep 22 09:02:24 TRT 2020
-base.0=/Users/oyabenlioglugulesan/Desktop/OYA/EmergencyApp/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
