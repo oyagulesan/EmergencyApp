@@ -1,0 +1,4 @@
+#Thu Feb 04 20:47:57 EET 2021
+base.0=/Users/oyabenlioglugulesan/EmergencyApp/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -28,6 +28,7 @@ import { Picker } from '@react-native-community/picker';
 import { showMessage, hideMessage } from "react-native-flash-message";
 import FlashMessage from "react-native-flash-message";
 import AnimatedLoader from "react-native-animated-loader";
+import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 
 
 import {
@@ -39,8 +40,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { setLocale, translations, TranslationContext } from './utils/translations';
 
-// const URL = 'https://emergency-visualizer.herokuapp.com';
-const URL = 'http://10.0.2.2:8080';
+const URL = 'https://emergency-visualizer.herokuapp.com';
+// const URL = 'http://10.0.2.2:8080'; // Means localhost
 const getToken = async () => {
   const resp = await axios.post(URL + '/api/authenticate',
     { username: 'admin', password: 'admin' }, null);
@@ -51,9 +52,121 @@ const getToken = async () => {
 }
 
 const App: () => React$Node = () => {
+  const requestPermission = async () => {
+    console.log('...request perm...');
+    if (Platform.OS === 'android') {
+      request(PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION).then(
+        (result) => {
+          switch (result) {
+            case RESULTS.GRANTED:
+              console.log('The permission ACCESS_COARSE_LOCATION is granted');
+              /*request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then(
+                (result) => {
+                  switch (result) {
+                    case RESULTS.GRANTED:
+                      console.log('The permission ACCESS_FINE_LOCATION is granted');
+                      break;
+                    default:
+                      console.log('The permission ACCESS_FINE_LOCATION is denied...' + result);
+                      break;
+                  }
+                }
+              ) 
+              */  
+              break;
+            default:
+              console.log('The permission ACCESS_COARSE_LOCATION is denied...' + result);
+              break;
+          }
+        }
+      )
+      .catch(err => console.log('...err', err));
+    } else {
+      request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE).then((result) => {
+        switch (result) {
+          case RESULTS.GRANTED:
+            console.log('The permission LOCATION_WHEN_IN_USE is granted');
+            /*request(PERMISSIONS.IOS.LOCATION_ALWAYS).then((result) => {
+              switch (result) {
+                case RESULTS.GRANTED:
+                  console.log('The permission LOCATION_ALWAYS is granted');
+                  break;
+                default:
+                  console.log('The permission LOCATION_ALWAYS is denied...' + result);
+                  break;
+              }
+            }); */
+            break;
+          default:
+            console.log('The permission LOCATION_WHEN_IN_USE is denied...' + result);
+            break;
+        }
+      })
+      .catch(err => console.log('...err', err));
+    }    
+  }
+  const checkPermission = async () => {
+    console.log('........' + Platform.OS);
+    if (Platform.OS === 'android') {
+      check(PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION).then(
+        async (result) => {
+          switch (result) {
+            case RESULTS.GRANTED:
+              console.log('The permission ACCESS_COARSE_LOCATION is granted');
+              /*check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then(
+                (result) => {
+                  switch (result) {
+                    case RESULTS.GRANTED:
+                      console.log('The permission ACCESS_FINE_LOCATION is granted');
+                      break;
+                    default:
+                      requestPermission();
+                      console.log('The permission ACCESS_FINE_LOCATION is denied...' + result);
+                      break;
+                  }
+                }
+              )*/
+              break;
+            default:
+              console.log('The permission ACCESS_COARSE_LOCATION is denied...' + result);
+              await requestPermission();
+              break;
+          }
+        }
+      )
+    } else {
+      check(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE).then(
+        async (result) => {
+          switch (result) {
+            case RESULTS.GRANTED:
+              console.log('The permission LOCATION_WHEN_IN_USE is granted');
+              /*check(PERMISSIONS.IOS.LOCATION_ALWAYS).then(
+                (result) => {
+                  switch (result) {
+                    case RESULTS.GRANTED:
+                      console.log('The permission LOCATION_ALWAYS is granted');
+                      break;
+                    default:
+                      requestPermission();
+                      console.log('The permission LOCATION_ALWAYS is denied...' + result);
+                      break;
+                  }
+                }
+              )*/
+              break;
+            default:
+              await requestPermission();
+              console.log('The permission LOCATION_WHEN_IN_USE is denied...' + result);
+              break;
+          }
+        }
+      )
+    }
+  }
   const RoundButton = (props) => {
     return (
       <Button
+        disabled={props.disabled}
         title={props.title}
         onPress={props.onPress}
         buttonStyle={{
@@ -117,6 +230,7 @@ const App: () => React$Node = () => {
 
   useEffect(() => {
     translations.setLanguage(lang);
+    checkPermission();
   }, [])
 
   const getEventList = async () => {
@@ -169,7 +283,7 @@ const App: () => React$Node = () => {
         console.log('Add demand resp', resp.data);
         setLoading(false);
         showMessage({
-          message: "Demand request processed successfully",
+          message: translations.demandSuccess,
           type: "success",
           duration: 2000,
         });
@@ -177,7 +291,7 @@ const App: () => React$Node = () => {
       } catch (ex) {
         setLoading(false);
         showMessage({
-          message: "An error occured, please try again later",
+          message: translations.error,
           type: "warning",
           duration: 2000,
         });
@@ -186,7 +300,7 @@ const App: () => React$Node = () => {
       console.log('location error', e);
       setLoading(false);
       showMessage({
-        message: "Please check location service permission and try again",
+        message: translations.checkPerm,
         type: "warning",
         duration: 2000,
       });
@@ -214,7 +328,7 @@ const App: () => React$Node = () => {
         console.log('Add supply resp', selectedEvent, emergencyData, resp.data);
         setLoading(false);
         showMessage({
-          message: "Supply notification processed successfully",
+          message: translations.supplySuccess,
           type: "success",
           duration: 2000,
         });
@@ -222,7 +336,7 @@ const App: () => React$Node = () => {
       } catch (ex) {
         setLoading(false);
         showMessage({
-          message: "An error occured, please try again later",
+          message: translations.error,
           type: "warning",
           duration: 2000,
         });
@@ -231,7 +345,7 @@ const App: () => React$Node = () => {
       console.log('location error', e);
       setLoading(false);
       showMessage({
-        message: "Please check location service permission and try again",
+        message: translations.checkPerm,
         type: "warning",
         duration: 2000,
       });
@@ -261,7 +375,7 @@ const App: () => React$Node = () => {
         console.log('Add emergency resp', resp.data);
         setLoading(false);
         showMessage({
-          message: "Emergency request processed successfully",
+          message: translations.emergencySuccess,
           type: "success",
           duration: 2000,
         });
@@ -269,7 +383,7 @@ const App: () => React$Node = () => {
       } catch (ex) {
         setLoading(false);
         showMessage({
-          message: "An error occured, please try again later",
+          message: translations.error,
           type: "warning",
           duration: 2000,
         });
@@ -278,7 +392,7 @@ const App: () => React$Node = () => {
       console.log('location error', e);
       setLoading(false);
       showMessage({
-        message: "Please check location service permission and try again",
+        message: translations.checkPerm,
         type: "warning",
         duration: 2000,
       });
@@ -308,13 +422,13 @@ const App: () => React$Node = () => {
           //alert('Twitter Opened');
         })
         .catch(() => {
-          alert('Something went wrong');
+          alert(translations.error);
         });
     }, (e) => {
       console.log('location error', e);
       setLoading(false);
       showMessage({
-        message: "Please check location service permission and try again",
+        message: translations.checkPerm,
         type: "warning",
         duration: 2000,
       });
@@ -375,14 +489,14 @@ const App: () => React$Node = () => {
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
             <FlashMessage position="top" />
-            <TouchableOpacity style={{marginLeft: 300, borderWidth: 0, borderColor: 'black', height: 40}} onPress={switchLang}>
+            <TouchableOpacity style={{marginLeft: 300, marginTop: 20, borderWidth: 0, borderColor: 'black', height: 40}} onPress={switchLang}>
               <View style={{ marginTop: 10,
                 flexDirection: 'row-reverse', flex: 1
               }} >
                 <Image style={
                   lang == 'en' ?
-                    { opacity: 0.3 } :
-                    { opacity: 1 }}
+                    { opacity: 0.3, marginRight: 10 } :
+                    { opacity: 1, marginRight: 10 }}
                   source={require('./src/assets/united-kingdom-flag-icon-32.png')}
                 />
                 <Image style={
@@ -394,32 +508,33 @@ const App: () => React$Node = () => {
               </View>
             </TouchableOpacity>
             <FadeInView>
-              <Text style={{
-                backgroundColor: '#cdf', height: 70, fontSize: 30, fontWeight: 'bold',
-                borderRadius: 20, marginLeft: 20, marginRight: 20, marginTop: 10,
-                borderColor: '#cac', borderWidth: 1,
-                textAlignVertical: 'center', textAlign: 'center', color: '#f00'
-              }}>
-                {translations.title}
-              </Text>
+              <View style={{
+                  backgroundColor: '#cdf', height: 70,
+                  borderRadius: 20, marginLeft: 20, marginRight: 20, marginTop: 10, padding: 15,
+                  borderColor: '#cac', borderWidth: 2,                  
+                }}>
+                <Text style={{textAlignVertical: 'center', textAlign: 'center', color: '#f00', fontSize: 25, fontWeight: 'bold'}}>
+                  {translations.title}
+                </Text>
+              </View>
             </FadeInView>
             <Text style={{
               marginTop: 30, fontSize: 20,
-              fontWeight: 'bold', textAlign: 'center', color: 'blue'
+              fontWeight: 'bold', textAlign: 'center', color: 'white'
             }}>
               {translations.selectEvent}
             </Text>
             {emergencyData.eventList && emergencyData.eventList.length > 0 ?
-              <View style={{ borderColor: 'blue', borderRadius: 20, borderWidth: 1, margin: 10 }}>
+              <View style={{ borderColor: 'white', borderRadius: 20, borderWidth: 2, margin: 10 }}>
                 <Picker
                   selectedValue={emergencyData.event.id}
-                  itemStyle={{ color: 'red' }}
+                  itemStyle={{ backgroundColor: "#325", borderRadius: 20, height: 100}}
                   onValueChange={(itemValue, itemIndex) => setEvent(itemValue)}
                 >
                   {
                     emergencyData.eventList.map(e => <Picker.Item key={e.id}
                       label={e.disasterDate + ' ' + e.city + ' ' + e.type + ' ' + e.uniqueId}
-                      color='#00f'
+                      color='#fff'
                       value={e.id} />)
                   }
                 </Picker>
@@ -429,20 +544,19 @@ const App: () => React$Node = () => {
             <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'space-between' }}>
               <View style={{ flexDirection: 'row', marginTop: 10, overflow: "visible", flexWrap: 'nowrap' }}>
                 <View>
-                  <Text style={{ marginLeft: 10, width: 50 }}>{translations.emergencyTitle}</Text>
+                  <Text style={{ color: '#fff', marginLeft: 10, width: 90 }}>{translations.emergencyTitle}</Text>
                 </View>
-                <View style={Platform.OS === 'ios' ? { marginLeft: -65, marginRight: 10, marginTop: 30, width: 25 } :
-                  { marginLeft: -50, marginRight: 10, marginTop: 35, width: 25 }}>
+                <View style={{ marginLeft: -90, marginRight: 10, marginTop: 35, width: 25 }}>
                   <View>
                     <TextInput
-                      style={{ color: 'black', width: 30, height: 40, borderWidth: 1 }}
+                      style={{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, height: 40, borderWidth: 1 }}
                       keyboardType={'numeric'}
                       value={'' + emergencyData.emergency}
                       editable={false}
                     />
                   </View>
                 </View>
-                <View style={Platform.OS === 'ios' ? { marginLeft: -10, marginRight: 10, marginTop: 30, width: 25 } :
+                <View style={Platform.OS === 'ios' ? { marginLeft: 0, marginRight: 5, marginTop: 35, width: 25 } :
                   { marginLeft: 5, marginRight: 10, marginTop: 35, width: 25 }}>
                   <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
@@ -450,7 +564,7 @@ const App: () => React$Node = () => {
                   })}
                   />
                 </View>
-                <View style={{ marginRight: 10, marginTop: 35, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginRight: 5, marginTop: 35, width: 25 }:{ marginRight: 10, marginTop: 35, width: 25 }}>
                   <RoundButton title={'+'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     emergency: emergencyData.emergency + 1
@@ -458,22 +572,24 @@ const App: () => React$Node = () => {
                   />
                 </View>
                 <View>
-                  <Text>{translations.injured}</Text>
+                  <Text style={{color: '#fff'}}>{translations.injured}</Text>
                   <TextInput
-                    style={{ color: 'black', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
+                    style={Platform.OS === 'ios' ?
+                    { color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 20, height: 40, borderWidth: 1, marginLeft: 5 }
+                    :{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
                     keyboardType={'numeric'}
                     value={'' + emergencyData.injured}
                     editable={false}
                   />
                 </View>
-                <View style={{ marginLeft: 10, marginRight: 10, marginTop: 30, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginLeft: 5, marginRight: 5, marginTop: 35, width: 25 }:{ marginLeft: 10, marginRight: 10, marginTop: 30, width: 25 }}>
                   <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     injured: (emergencyData.injured == 0 ? 0 : emergencyData.injured - 1)
                   })}
                   />
                 </View>
-                <View style={{ marginRight: 0, marginTop: 30, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginRight: 0, marginTop: 35, width: 25 }:{ marginRight: 0, marginTop: 30, width: 25 }}>
                   <RoundButton title={'+'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     injured: emergencyData.injured + 1
@@ -481,8 +597,8 @@ const App: () => React$Node = () => {
                   />
                 </View>
               </View>
-              <View style={{ marginRight: 10, marginTop: 40 }}>
-                <RoundButton style={{ width: 150 }} title={translations.sendEmergency} onPress={sendEmergency} />
+              <View style={Platform.OS === 'ios' ?{ marginRight: 5, marginTop: 40 }:{ marginRight: 10, marginTop: 40 }}>
+                <RoundButton disabled={emergencyData.emergency == 0 && emergencyData.injured == 0} style={{ width: 150 }} title={translations.sendEmergency} onPress={sendEmergency} />
               </View>
             </View>
 
@@ -490,19 +606,22 @@ const App: () => React$Node = () => {
             <View style={{ marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
               <View style={{ flexDirection: 'row', marginTop: 10 }}>
                 <TextInput
-                  style={{ color: 'black', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
+                  style={Platform.OS === 'ios' ?{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 5, height: 40, borderWidth: 1, marginLeft: 10 }
+                  : { color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
                   keyboardType={'numeric'}
                   value={'' + emergencyData.demand}
                   editable={false}
                 />
-                <View style={{ marginLeft: 10, marginRight: 10, marginTop: 10, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginLeft: 5, marginRight: 5, marginTop: 5, width: 25 }
+                :{ marginLeft: 10, marginRight: 10, marginTop: 10, width: 25 }}>
                   <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     demand: (emergencyData.demand == 0 ? 0 : emergencyData.demand - 1)
                   })}
                   />
                 </View>
-                <View style={{ marginRight: 10, marginTop: 10, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginRight: 5, marginTop: 5, width: 25 }
+                :{ marginRight: 10, marginTop: 10, width: 25 }}>
                   <RoundButton title={'+'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     demand: emergencyData.demand + 1
@@ -510,20 +629,22 @@ const App: () => React$Node = () => {
                   />
                 </View>
               </View>
-              <View style={{ marginRight: 10, marginTop: 20 }}>
-                <RoundButton style={{ width: 150 }} title={translations.sendDemand} onPress={sendDemand} />
+              <View style={Platform.OS === 'ios' ?{ marginRight: 5, marginTop: 20 }
+                :{ marginRight: 10, marginTop: 20 }}>
+                <RoundButton disabled={emergencyData.demand == 0} style={{ width: 150 }} title={translations.sendDemand} onPress={sendDemand} />
               </View>
             </View>
 
             <View style={{ marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
               <View style={{ flexDirection: 'row', marginTop: 10 }}>
                 <TextInput
-                  style={{ color: 'black', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
+                  style={{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
                   keyboardType={'decimal-pad'}
                   value={'' + emergencyData.supply}
                   editable={false}
                 />
-                <View style={{ marginLeft: 10, marginRight: 10, marginTop: 10, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginLeft: 5, marginRight: 5, marginTop: 10, width: 25 }
+                  :{ marginLeft: 10, marginRight: 10, marginTop: 10, width: 25 }}>
                   <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     supply: (emergencyData.supply == 0 ? 0 : (emergencyData.supply - 1))
@@ -538,18 +659,24 @@ const App: () => React$Node = () => {
                   />
                 </View>
               </View>
-              <View style={{ marginRight: 10, marginTop: 20 }}>
-                <RoundButton style={{ width: 150 }} title={translations.sendSupply} onPress={sendSupply} />
+              <View style={{ marginRight: 10, marginTop: 10 }}>
+                <RoundButton disabled={emergencyData.supply == 0} style={{ width: 150 }} title={translations.sendSupply} onPress={sendSupply} />
               </View>
             </View>
-            <View style={{ height: 40 }} />
-            <View style={{ marginTop: 0, flexDirection: 'row', justifyContent: 'center' }}>
-              <Text>{translations.sendTweet}</Text>
+            <View style={{ height: 20 }} />
+            <View style={emergencyData.supply == 0 && 
+                    emergencyData.demand == 0 && emergencyData.injured == 0 && emergencyData.emergency == 0 ?
+                    { marginTop: 0, marginBottom: 5, flexDirection: 'row', justifyContent: 'center', opacity: 0.3 }
+                   : { marginTop: 0, marginBottom: 5, flexDirection: 'row', justifyContent: 'center' }}>
+              <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>{translations.sendTweet}</Text>
             </View>
-            <View style={{ marginTop: 0, flexDirection: 'row', justifyContent: 'center' }}>
-              <TouchableOpacity onPress={sendTweet}>
+            <View style={{ marginTop: 0, marginBottom: 10, flexDirection: 'row', justifyContent: 'center' }}>
+              <TouchableOpacity disabled={emergencyData.supply == 0 && 
+                emergencyData.demand == 0 && emergencyData.injured == 0 && emergencyData.emergency == 0} onPress={sendTweet}>
                 <Image
-                  style={{ width: 60, height: 60, marginTop: 10 }}
+                  style={emergencyData.supply == 0 && 
+                    emergencyData.demand == 0 && emergencyData.injured == 0 && emergencyData.emergency == 0 ?
+                    { width: 80, height: 80, marginTop: 0, opacity: 0.3 } : { width: 80, height: 80, marginTop: 0 }}
                   source={require('./src/assets/twitter.png')}
                 />
               </TouchableOpacity>
@@ -563,9 +690,9 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: '#325',
     justifyContent: 'space-between',
-    marginTop: 20,
+    height: '100%',
   },
   engine: {
     position: 'absolute',

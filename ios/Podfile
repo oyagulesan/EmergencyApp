@@ -46,6 +46,10 @@ end
 
 target 'EmergencyApp' do
   # Pods for EmergencyApp
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -78,6 +82,7 @@ target 'EmergencyApp' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+  
 
   target 'EmergencyAppTests' do
     inherit! :complete

@@ -9,7 +9,12 @@ export const translations = new LocalizedStrings({
     sendEmergency: 'Send Emergency',
     sendDemand: 'Send Demand',
     sendSupply: 'Send Supply',
-    sendTweet: 'Send Tweet'
+    sendTweet: 'Send Tweet',
+    demandSuccess: 'Demand request processed successfully',
+    supplySuccess: 'Supply notification processed successfully',
+    emergencySuccess: 'Emergency request processed successfully',
+    error: 'An error occured, please try again later',
+    checkPerm: 'Please check location service permission and try again'
   },
   'tr': {
     title: 'ACİL DURUM',
@@ -19,7 +24,12 @@ export const translations = new LocalizedStrings({
     sendEmergency: 'Aciliyet Bildir',
     sendDemand: 'İhtiyaç Bildir',
     sendSupply: 'Erzak Bildir',
-    sendTweet: 'Tweet göndermek için basınız'
+    sendTweet: 'Tweet göndermek için basınız',
+    demandSuccess: 'İşlem başarıyla gerçekleştirildi',
+    supplySuccess: 'İşlem başarıyla gerçekleştirildi',
+    emergencySuccess: 'İşlem başarıyla gerçekleştirildi',
+    error: 'Bir hata oluştu, tekrar deneyin',
+    checkPerm: 'Lokasyon servis iznini kontrol edin'
   },
 });
 
