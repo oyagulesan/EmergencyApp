@@ -29,7 +29,8 @@ import { showMessage, hideMessage } from "react-native-flash-message";
 import FlashMessage from "react-native-flash-message";
 import AnimatedLoader from "react-native-animated-loader";
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
-
+import AppIntro from './src/screens/AppIntro';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {
   Header,
@@ -228,10 +229,6 @@ const App: () => React$Node = () => {
   }
   const [lang, setLang] = useState('en');
 
-  useEffect(() => {
-    translations.setLanguage(lang);
-    checkPermission();
-  }, [])
 
   const getEventList = async () => {
     setLoading(true);
@@ -436,8 +433,9 @@ const App: () => React$Node = () => {
     }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
   };
   const switchLang = () => {
-    console.log('....switchLang lang ', lang);
+    // console.log('....switchLang lang ', lang);
     translations.setLanguage(lang == 'tr' ? 'en' : 'tr');
+    AsyncStorage.setItem('EmergencyApp.lang', lang == 'tr' ? 'en' : 'tr');
     if (lang == 'tr') {
       setTimeout(() => setLang('en'), 100)
     } else {
@@ -457,6 +455,8 @@ const App: () => React$Node = () => {
     token: '',
     loading: false,
   });
+  const [isInit, setIsInit] = useState(true);
+
   const [twitterData, setTwitterData] = useState({
     TwitterShareURL: 'https://aboutreact.com',
     TweetContent: 's:%DEMAND% y:%INJURED% g:%EMERGENCY% l:%COORDINATES%',
@@ -464,18 +464,38 @@ const App: () => React$Node = () => {
     TwitterViaAccount: 'AboutReact',
     TweetHashTag: 'DepremYardimCagrisi',
   })
+
+  const translations = useContext(TranslationContext);
+
   useEffect(() => {
     async function fetchEvents() {
       const eventList = await getEventList();
       setEmergencyData({ ...emergencyData, eventList, event: eventList[0] });
     }
+    translations.setLanguage(lang);
+    checkAsyncStorage();
+    checkPermission();
     fetchEvents();
-  }, []);
-  const translations = useContext(TranslationContext);
+  }, [])
 
-  console.log('....rendering with lang ', lang);
+  const checkAsyncStorage = async () => {
+    const langTmp = await AsyncStorage.getItem('EmergencyApp.lang');
+    if (langTmp && langTmp != '') {
+      translations.setLanguage(langTmp);
+    } else {
+      AsyncStorage.setItem('EmergencyApp.lang', lang);
+    }
+    const isInitTmp = await AsyncStorage.getItem('EmergencyApp.isInit');
+    if (isInitTmp === true) {
+      setIsInit(true);
+    }
+  }
+  const onDone = () => {
+    setIsInit(false);
+  }
   return <>
-    { emergencyData.loading ? <AnimatedLoader
+    { isInit ? <AppIntro os = {Platform.OS} lang={lang} onDone={onDone} toggleLang={switchLang} />
+    : emergencyData.loading ? <AnimatedLoader
       visible={true}
       overlayColor="rgba(255,255,255,0.75)"
       source={require("./res-29574-dot-loader-3.json")}
@@ -489,7 +509,7 @@ const App: () => React$Node = () => {
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
             <FlashMessage position="top" />
-            <TouchableOpacity style={{marginLeft: 300, marginTop: 20, borderWidth: 0, borderColor: 'black', height: 40}} onPress={switchLang}>
+            <TouchableOpacity style={{marginLeft: 300, marginTop: 5, borderWidth: 0, borderColor: 'black', height: 40}} onPress={switchLang}>
               <View style={{ marginTop: 10,
                 flexDirection: 'row-reverse', flex: 1
               }} >
@@ -509,8 +529,8 @@ const App: () => React$Node = () => {
             </TouchableOpacity>
             <FadeInView>
               <View style={{
-                  backgroundColor: '#cdf', height: 70,
-                  borderRadius: 20, marginLeft: 20, marginRight: 20, marginTop: 10, padding: 15,
+                  backgroundColor: '#cdf', height: 50,
+                  borderRadius: 20, marginLeft: 20, marginRight: 20, marginTop: 5, padding: 5,
                   borderColor: '#cac', borderWidth: 2,                  
                 }}>
                 <Text style={{textAlignVertical: 'center', textAlign: 'center', color: '#f00', fontSize: 25, fontWeight: 'bold'}}>
@@ -519,7 +539,7 @@ const App: () => React$Node = () => {
               </View>
             </FadeInView>
             <Text style={{
-              marginTop: 30, fontSize: 20,
+              marginTop: 5, fontSize: 20,
               fontWeight: 'bold', textAlign: 'center', color: 'white'
             }}>
               {translations.selectEvent}
@@ -541,12 +561,12 @@ const App: () => React$Node = () => {
               </View>
               : null
             }
-            <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'space-between' }}>
-              <View style={{ flexDirection: 'row', marginTop: 10, overflow: "visible", flexWrap: 'nowrap' }}>
+            <View style={{ marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
+              <View style={{ flexDirection: 'row', marginTop: 10, overflow: "visible", flexWrap: 'nowrap', borderColor: 'white', borderWidth: 0 }}>
                 <View>
                   <Text style={{ color: '#fff', marginLeft: 10, width: 90 }}>{translations.emergencyTitle}</Text>
                 </View>
-                <View style={{ marginLeft: -90, marginRight: 10, marginTop: 35, width: 25 }}>
+                <View style={{ marginLeft: -90, marginRight: 10, marginTop: 30, width: 25, borderColor: 'white', borderWidth: 0 }}>
                   <View>
                     <TextInput
                       style={{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, height: 40, borderWidth: 1 }}
@@ -556,7 +576,7 @@ const App: () => React$Node = () => {
                     />
                   </View>
                 </View>
-                <View style={Platform.OS === 'ios' ? { marginLeft: 0, marginRight: 5, marginTop: 35, width: 25 } :
+                <View style={Platform.OS === 'ios' ? { marginLeft: 0, marginRight: 5, marginTop: 30, width: 25 } :
                   { marginLeft: 5, marginRight: 10, marginTop: 35, width: 25 }}>
                   <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
@@ -564,7 +584,7 @@ const App: () => React$Node = () => {
                   })}
                   />
                 </View>
-                <View style={Platform.OS === 'ios' ?{ marginRight: 5, marginTop: 35, width: 25 }:{ marginRight: 10, marginTop: 35, width: 25 }}>
+                <View style={Platform.OS === 'ios' ?{ marginRight: 5, marginTop: 30, width: 25 }:{ marginRight: 10, marginTop: 35, width: 25 }}>
                   <RoundButton title={'+'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     emergency: emergencyData.emergency + 1
@@ -572,24 +592,27 @@ const App: () => React$Node = () => {
                   />
                 </View>
                 <View>
-                  <Text style={{color: '#fff'}}>{translations.injured}</Text>
+                  <Text style={Platform.OS === 'ios' ? {marginLeft: -95, marginTop: 80, color: '#fff'} :
+                                                       {marginLeft: -110, marginTop: 80, color: '#fff'}}>{translations.injured}</Text>
                   <TextInput
                     style={Platform.OS === 'ios' ?
-                    { color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 20, height: 40, borderWidth: 1, marginLeft: 5 }
-                    :{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: 10 }}
+                    { color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: -95 }
+                    :{ color: 'white', fontWeight: 'bold', borderColor: 'white', textAlign: 'center', width: 30, marginTop: 10, height: 40, borderWidth: 1, marginLeft: -110 }}
                     keyboardType={'numeric'}
                     value={'' + emergencyData.injured}
                     editable={false}
                   />
                 </View>
-                <View style={Platform.OS === 'ios' ?{ marginLeft: 5, marginRight: 5, marginTop: 35, width: 25 }:{ marginLeft: 10, marginRight: 10, marginTop: 30, width: 25 }}>
+                <View style={Platform.OS === 'ios' ? { marginLeft: -60, marginRight: 5, marginTop: 105, width: 25 }:
+                                                     { marginLeft: -70, marginRight: 10, marginTop: 110, width: 25 }}>
                   <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     injured: (emergencyData.injured == 0 ? 0 : emergencyData.injured - 1)
                   })}
                   />
                 </View>
-                <View style={Platform.OS === 'ios' ?{ marginRight: 0, marginTop: 35, width: 25 }:{ marginRight: 0, marginTop: 30, width: 25 }}>
+                <View style={Platform.OS === 'ios' ? { marginLeft: 0, marginTop: 105, width: 25 }:
+                                                     { marginLeft: 0, marginTop: 110, width: 25 }}>
                   <RoundButton title={'+'} onPress={() => setEmergencyData({
                     ...emergencyData,
                     injured: emergencyData.injured + 1
@@ -663,12 +686,11 @@ const App: () => React$Node = () => {
                 <RoundButton disabled={emergencyData.supply == 0} style={{ width: 150 }} title={translations.sendSupply} onPress={sendSupply} />
               </View>
             </View>
-            <View style={{ height: 20 }} />
             <View style={emergencyData.supply == 0 && 
                     emergencyData.demand == 0 && emergencyData.injured == 0 && emergencyData.emergency == 0 ?
                     { marginTop: 0, marginBottom: 5, flexDirection: 'row', justifyContent: 'center', opacity: 0.3 }
                    : { marginTop: 0, marginBottom: 5, flexDirection: 'row', justifyContent: 'center' }}>
-              <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>{translations.sendTweet}</Text>
+              <Text style={{ color: '#fff', fontSize: 17, fontWeight: 'bold' }}>{translations.sendTweet}</Text>
             </View>
             <View style={{ marginTop: 0, marginBottom: 10, flexDirection: 'row', justifyContent: 'center' }}>
               <TouchableOpacity disabled={emergencyData.supply == 0 && 
@@ -676,7 +698,7 @@ const App: () => React$Node = () => {
                 <Image
                   style={emergencyData.supply == 0 && 
                     emergencyData.demand == 0 && emergencyData.injured == 0 && emergencyData.emergency == 0 ?
-                    { width: 80, height: 80, marginTop: 0, opacity: 0.3 } : { width: 80, height: 80, marginTop: 0 }}
+                    { width: 50, height: 50, marginTop: 0, opacity: 0.3 } : { width: 50, height: 50, marginTop: 0 }}
                   source={require('./src/assets/twitter.png')}
                 />
               </TouchableOpacity>
