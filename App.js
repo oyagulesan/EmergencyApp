@@ -492,6 +492,7 @@ const App: () => React$Node = () => {
   }
   const onDone = () => {
     setIsInit(false);
+    AsyncStorage.setItem('EmergencyApp.isInit', true);
   }
   return <>
     { isInit ? <AppIntro os = {Platform.OS} lang={lang} onDone={onDone} toggleLang={switchLang} />
