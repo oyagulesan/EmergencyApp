@@ -482,17 +482,19 @@ const App: () => React$Node = () => {
     const langTmp = await AsyncStorage.getItem('EmergencyApp.lang');
     if (langTmp && langTmp != '') {
       translations.setLanguage(langTmp);
+      setLang(langTmp);
     } else {
       AsyncStorage.setItem('EmergencyApp.lang', lang);
     }
     const isInitTmp = await AsyncStorage.getItem('EmergencyApp.isInit');
-    if (isInitTmp === 'true') {
-      setIsInit(true);
+    if (isInitTmp === 'false') {
+      setIsInit(false);
     }
+    console.log('...langTmp, isInitTmp..', langTmp, isInitTmp);
   }
   const onDone = () => {
     setIsInit(false);
-    AsyncStorage.setItem('EmergencyApp.isInit', 'true');
+    AsyncStorage.setItem('EmergencyApp.isInit', 'false');
   }
   return <>
     { isInit ? <AppIntro os = {Platform.OS} lang={lang} onDone={onDone} toggleLang={switchLang} />
