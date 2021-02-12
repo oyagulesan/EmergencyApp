@@ -24,9 +24,15 @@
     "react-native-elements": "^2.3.2",
     "react-native-flash-message": "^0.1.16",
     "react-native-geolocation-service": "^5.0.0",
+    "react-native-gesture-handler": "^1.10.0",
     "react-native-localization": "^2.1.6",
+    "react-native-maps": "^0.27.1",
     "react-native-permissions": "^3.0.0",
-    "react-native-vector-icons": "^7.1.0"
+    "react-native-reanimated": "^1.13.2",
+    "react-native-screens": "^2.17.1",
+    "react-native-vector-icons": "^7.1.0",
+    "react-navigation": "^4.4.3",
+    "react-navigation-tabs": "^2.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

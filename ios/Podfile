@@ -82,13 +82,20 @@ target 'EmergencyApp' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
-  
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 
   target 'EmergencyAppTests' do
     inherit! :complete
     # Pods for testing
   end
 
+  # React Native Maps dependencies
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  
   use_native_modules!
 
   # Enables Flipper.

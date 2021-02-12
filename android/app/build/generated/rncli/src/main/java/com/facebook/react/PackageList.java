@@ -21,10 +21,18 @@ import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 // react-native-geolocation-service
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-localization
 import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
+// react-native-maps
+import com.airbnb.android.react.maps.MapsPackage;
 // react-native-permissions
 import com.zoontek.rnpermissions.RNPermissionsPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
+// react-native-screens
+import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -77,8 +85,12 @@ public class PackageList {
       new RNCPickerPackage(),
       new LottiePackage(),
       new RNFusedLocationPackage(),
+      new RNGestureHandlerPackage(),
       new ReactNativeLocalizationPackage(),
+      new MapsPackage(),
       new RNPermissionsPackage(),
+      new ReanimatedPackage(),
+      new RNScreensPackage(),
       new VectorIconsPackage()
     ));
   }
