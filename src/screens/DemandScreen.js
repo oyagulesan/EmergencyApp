@@ -20,7 +20,6 @@ const DemandScreen = () => {
         <SendDemandComponent />
 
         <TwitterComponent />
-
       </View>
     </SafeAreaView>
   </>

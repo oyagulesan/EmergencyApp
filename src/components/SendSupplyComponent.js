@@ -6,12 +6,12 @@ import {
     Text
 } from 'react-native';
 
-import { sendSupply, Context as AppContext } from '../context/AppContext';
+import { Context as AppContext } from '../context/AppContext';
 import RoundButton from './RoundButton';
 
 const SendSupplyComponent = () => {
 
-    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData } = useContext(AppContext);
+    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData, sendSupply } = useContext(AppContext);
 
     return (
       <View style={{height: '35%', backgroundColor: '#325' }}>
@@ -33,11 +33,11 @@ const SendSupplyComponent = () => {
               />
               <RoundButton title={'+'} onPress={() => setEmergencyData({
                   ...emergencyData,
-                  emergency: emergencyData.supply + 1
+                  supply: emergencyData.supply + 1
               })}
               />
           </View>
-          <RoundButton disabled={emergencyData.injured == 0}
+          <RoundButton disabled={emergencyData.supply == 0}
               style={{ marginTop: 30, height: 40, width: 200 }}
               title={translations.sendSupply} 
               onPress={() => sendSupply(headers, emergencyData, translations, resetData)} 

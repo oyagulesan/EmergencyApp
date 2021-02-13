@@ -9,6 +9,7 @@ const RoundButton = (props) => {
         onPress={props.onPress}
         buttonStyle={{
           margin: 10,
+          paddingVertical: 0,
           borderRadius: 30,
           height: 25,
           width: 100,

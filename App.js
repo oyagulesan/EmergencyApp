@@ -10,6 +10,7 @@ import { setNavigator } from './src/navigationRef';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Provider as AppProvider } from './src/context/AppContext';
+import FlashMessage from 'react-native-flash-message';
 
 const mainFlow = createBottomTabNavigator({
   Home: {
@@ -80,6 +81,7 @@ export default () => {
   return (
     <AppProvider>
       <App ref={(navigator) => { setNavigator(navigator) }}/>
+      <FlashMessage position="top" />
     </AppProvider>
   )
 }

@@ -31,7 +31,7 @@ const HomeScreen = () => {
       request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE).then((result) => {
         switch (result) {
           case RESULTS.GRANTED:
-            console.log('The permission LOCATION_WHEN_IN_USE is granted');
+            console.log('The permission LOCATION_WHEN_IN_USE is now granted');
             break;
           default:
             console.log('The permission LOCATION_WHEN_IN_USE is denied...' + result);
@@ -42,16 +42,14 @@ const HomeScreen = () => {
     }    
   }
   const checkPermission = async () => {
-
     if (Platform.OS === 'android') {
       check(PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION).then(
         async (result) => {
           switch (result) {
             case RESULTS.GRANTED:
-              console.log('The permission ACCESS_COARSE_LOCATION is granted');
+              console.log('The permission ACCESS_COARSE_LOCATION is already granted');
               break;
             default:
-              console.log('The permission ACCESS_COARSE_LOCATION is denied...' + result);
               await requestPermission();
               break;
           }
@@ -62,11 +60,11 @@ const HomeScreen = () => {
         async (result) => {
           switch (result) {
             case RESULTS.GRANTED:
-              console.log('The permission LOCATION_WHEN_IN_USE is granted');
+              console.log('The permission LOCATION_WHEN_IN_USE is already granted');
               break;
             default:
               await requestPermission();
-              console.log('The permission LOCATION_WHEN_IN_USE is denied...' + result);
+              // console.log('The permission LOCATION_WHEN_IN_USE is denied...' + result);
               break;
           }
         }

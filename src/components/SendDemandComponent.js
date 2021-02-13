@@ -6,12 +6,12 @@ import {
     Text,
 } from 'react-native';
 
-import { sendDemand, Context as AppContext } from '../context/AppContext';
+import { Context as AppContext } from '../context/AppContext';
 import RoundButton from './RoundButton';
 
 const SendDemandComponent = () => {
 
-    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData } = useContext(AppContext);
+    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData, sendDemand } = useContext(AppContext);
 
     return (
       <View style={{height: '35%', backgroundColor: '#325' }}>
@@ -22,7 +22,7 @@ const SendDemandComponent = () => {
           <View style={{ flexDirection: 'row', alignContent: 'center', paddingLeft: 30 }}>
               <RoundButton title={'-'} onPress={() => setEmergencyData({
                   ...emergencyData,
-                  emergency: (emergencyData.demand == 0 ? 0 : emergencyData.demand - 1)
+                  demand: (emergencyData.demand == 0 ? 0 : emergencyData.demand - 1)
               })}
               />
               <TextInput

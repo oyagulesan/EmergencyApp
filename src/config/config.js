@@ -1,6 +1,6 @@
 export default CONFIG = {
     URL: 'https://emergency-visualizer.herokuapp.com',
-    // 'http://10.0.2.2:8080'; // Means localhost
+     // 'http://localhost:8080', // 10.0.2.2 means localhost for android
     USERNAME: 'admin',
     PASSWORD: 'admin',
     TWITTER_DATA: {

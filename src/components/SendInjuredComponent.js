@@ -6,12 +6,12 @@ import {
     TextInput,
 } from 'react-native';
 
-import { sendEmergency, Context as AppContext } from '../context/AppContext';
+import { Context as AppContext } from '../context/AppContext';
 import RoundButton from './RoundButton';
 
 const SendInjuredComponent = () => {
 
-    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData } = useContext(AppContext);
+    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData, sendEmergency } = useContext(AppContext);
 
     return (
         <View style={{height: '35%', backgroundColor: '#325' }}>
@@ -22,7 +22,7 @@ const SendInjuredComponent = () => {
             <View style={{ flexDirection: 'row', alignContent: 'center', paddingLeft: 30 }}>
                 <RoundButton title={'-'} onPress={() => setEmergencyData({
                     ...emergencyData,
-                    emergency: (emergencyData.injured == 0 ? 0 : emergencyData.injured - 1)
+                    injured: (emergencyData.injured == 0 ? 0 : emergencyData.injured - 1)
                 })}
                 />
                 <TextInput

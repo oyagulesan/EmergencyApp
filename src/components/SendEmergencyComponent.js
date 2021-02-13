@@ -6,12 +6,12 @@ import {
     TextInput,
 } from 'react-native';
 
-import { sendEmergency, Context as AppContext } from '../context/AppContext';
+import { Context as AppContext } from '../context/AppContext';
 import RoundButton from '../components/RoundButton';
 
 const SendEmergencyComponent = () => {
 
-    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData } = useContext(AppContext);
+    const { state: { headers, emergencyData, translations }, setEmergencyData, resetData, sendEmergency } = useContext(AppContext);
 
     return (
     <View style={{height: '35%', backgroundColor: '#325' }}>

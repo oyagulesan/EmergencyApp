@@ -172,12 +172,12 @@ const styles = StyleSheet.create({
   },
   lang: {
     position: 'absolute',
-    height: 40,
+    height: 80,
     width: 100,
     top: 20,
     right: 5,
     borderColor: 'red',
-    borderWidth: 0
+    borderWidth: 2
   }
 });
 

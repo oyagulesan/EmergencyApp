@@ -4,12 +4,12 @@ import CONFIG from '../config/config';
 import AsyncStorage from '@react-native-community/async-storage';
 import LocalizedStrings from 'react-native-localization';
 import Geolocation from 'react-native-geolocation-service';
-import { showMessage, hideMessage } from "react-native-flash-message";
 import { Linking } from 'react-native';
 
 
 export const translations = new LocalizedStrings({
   'en': {
+    appTitle: 'EMERGENCY APP',
     title: 'EMERGENCY',
     selectEvent: 'Please select event',
     emergencyTitle: 'Emergency',
@@ -28,6 +28,7 @@ export const translations = new LocalizedStrings({
     checkPerm: 'Please check location service permission and try again'
   },
   'tr': {
+    appTitle: 'ACİL DURUM UYGULAMASI',
     title: 'ACİL DURUM',
     selectEvent: 'Lütfen acil durumu seçiniz',
     emergencyTitle: 'Aciliyet',
@@ -61,6 +62,8 @@ const appReducer = (state, action) => {
       demand: 0,
       supply: 0,
     }}
+    case 'setMsg': return { ...state, msg: action.payload };
+    case 'resetMsg': return { ...state, msg: null };
     default: return state;
   }
 };
@@ -79,8 +82,14 @@ export const setLocale = (locale) => {
   translations.setContent(newTranslations);
 };
 
+const setMsg = dispatch => val => {
+  dispatch({ type: 'setMsg', payload: val });
+}
+
+const resetMsg = dispatch => () => {
+  dispatch({ type: 'resetMsg' });
+}
 const getToken = async () => {
-  try {
     const resp = await axios.post(CONFIG.URL + '/api/authenticate',
       { username: CONFIG.USERNAME, password: CONFIG.PASSWORD }, null);
     if (resp.data && resp.data.id_token && resp.data.id_token != '') {
@@ -89,15 +98,6 @@ const getToken = async () => {
         'Content-Type': 'application/json'
       };
     }
-  } catch (err) {
-    console.log('Failed to get token', err);
-    showMessage({
-      message: translations.error,
-      type: "warning",
-      duration: 2000,
-    });
-  }
-  return null;
 }
 
 const setEvent = dispatch => eventId => {
@@ -137,11 +137,11 @@ const getEventList = dispatch => {
     } catch (err) {
       console.log('error', err);
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.error,
         type: "warning",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
     }
   }
 }
@@ -174,16 +174,16 @@ const initialize = dispatch => async () => {
     }
   } catch (err) {
     console.log('error', err);
-    showMessage({
+    dispatch({ type: 'setMsg', payload: {
       message: translations.error,
       type: "warning",
-      duration: 2000,
-    });
+      duration: 5000,
+    }});
   }
   dispatch({ type: 'setLoading', payload: false });
 }
 
-export const sendDemand = dispatch => async (headers, emergencyData, translations, clearData) => {
+const sendDemand = dispatch => async (headers, emergencyData, translations, clearData) => {
   console.log('Send demand');
   dispatch({ type: 'setLoading', payload: true });
   const selectedEvent = emergencyData.event;
@@ -202,32 +202,32 @@ export const sendDemand = dispatch => async (headers, emergencyData, translation
       console.log('Add demand resp', resp.data);
       clearData();
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.demandSuccess,
         type: "success",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
       return resp.data;
     } catch (ex) {
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.error,
         type: "warning",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
     }
   }, (e) => {
     console.log('location error', e);
     dispatch({ type: 'setLoading', payload: false });
-    showMessage({
+    dispatch({ type: 'setMsg', payload: {
       message: translations.checkPerm,
       type: "warning",
-      duration: 2000,
-    });
+      duration: 5000,
+    }});
     return null
   }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
 }
-export const sendSupply = async (headers, emergencyData, translations, clearData) => {
+const sendSupply = dispatch => async (headers, emergencyData, translations, clearData) => {
   console.log('Send supply');
   dispatch({ type: 'setLoading', payload: true });
   const selectedEvent = emergencyData.event;
@@ -247,32 +247,32 @@ export const sendSupply = async (headers, emergencyData, translations, clearData
       console.log('Add supply resp', selectedEvent, emergencyData, resp.data);
       clearData();
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.supplySuccess,
         type: "success",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
       return resp.data;
     } catch (ex) {
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.error,
         type: "warning",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
     }
   }, (e) => {
     console.log('location error', e);
     dispatch({ type: 'setLoading', payload: false });
-    showMessage({
+    dispatch({ type: 'setMsg', payload: {
       message: translations.checkPerm,
       type: "warning",
-      duration: 2000,
-    });
+      duration: 5000,
+    }});
     return null
   }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
 }
-export const sendEmergency = async (headers, emergencyData, translations, clearData) => {
+const sendEmergency = dispatch => async (headers, emergencyData, translations, clearData) => {
   console.log('Send emergency');
   dispatch({ type: 'setLoading', payload: true });
   const selectedEvent = emergencyData.event;
@@ -294,32 +294,32 @@ export const sendEmergency = async (headers, emergencyData, translations, clearD
       console.log('Add emergency resp', resp.data);
       clearData();
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.emergencySuccess,
         type: "success",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
       return resp.data;
     } catch (ex) {
       dispatch({ type: 'setLoading', payload: false });
-      showMessage({
+      dispatch({ type: 'setMsg', payload: {
         message: translations.error,
         type: "warning",
-        duration: 2000,
-      });
+        duration: 5000,
+      }});
     }
   }, (e) => {
     console.log('location error', e);
     dispatch({ type: 'setLoading', payload: false });
-    showMessage({
+    dispatch({ type: 'setMsg', payload: {
       message: translations.checkPerm,
       type: "warning",
-      duration: 2000,
-    });
+      duration: 5000,
+    }});
     return null
   }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
 }
-export const sendTweet = async (emergencyData, translations, clearData) => {
+const sendTweet = dispatch => async (emergencyData, translations, clearData) => {
   dispatch({ type: 'setLoading', payload: true });
   let TwitterParameters = [];
   const { TwitterShareURL, TweetContent, TwitterViaAccount, TweetHashTag } = CONFIG.TWITTER_DATA;
@@ -345,20 +345,20 @@ export const sendTweet = async (emergencyData, translations, clearData) => {
       })
       .catch(() => {
         dispatch({ type: 'setLoading', payload: false });
-        showMessage({
+        dispatch({ type: 'setMsg', payload: {
           message: translations.error,
           type: "warning",
-          duration: 2000,
-        });
+          duration: 5000,
+        }});
       });
   }, (e) => {
     console.log('location error', e);
     dispatch({ type: 'setLoading', payload: false });
-    showMessage({
+    dispatch({ type: 'setMsg', payload: {
       message: translations.checkPerm,
       type: "warning",
-      duration: 2000,
-    });
+      duration: 5000,
+    }});
     return null
   }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 });
 };
@@ -372,7 +372,8 @@ const resetData = dispatch => () => {
 }
 export const { Provider, Context } = createDataContext(
   appReducer,
-  { initialize, setIsInit, getEventList, setLang, setEvent, setEmergencyData, resetData },
+  { initialize, setIsInit, getEventList, setLang, setEvent, setEmergencyData, resetData, setMsg, resetMsg,
+    sendDemand, sendSupply, sendEmergency, sendTweet},
   {
     translations,
     token: null,
@@ -387,10 +388,11 @@ export const { Provider, Context } = createDataContext(
       supply: 0,
       event: null,
       eventList: [],
-      header: '',
+      headers: null,
       loading: false,
     },
     isInit: true,
-    headers: ''
+    headers: '',
+    msg: null
   }
 );
