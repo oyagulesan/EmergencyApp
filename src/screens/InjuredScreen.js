@@ -8,12 +8,12 @@ import CommonComponent from '../components/CommonComponent';
 import SendInjuredComponent from '../components/SendInjuredComponent';
 import TwitterComponent from '../components/TwitterComponent';
 
-const InjuredScreen = () => {
+const InjuredScreen = ({ navigation }) => {
 
   return <>
     <SafeAreaView>
       <View>
-        <CommonComponent />
+        <CommonComponent navigation={navigation}/>
         <SendInjuredComponent />
         <TwitterComponent />
       </View>

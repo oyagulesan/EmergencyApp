@@ -9,13 +9,13 @@ import CommonComponent from '../components/CommonComponent';
 import SendEmergencyComponent from '../components/SendEmergencyComponent';
 import TwitterComponent from '../components/TwitterComponent';
 
-const EmergencyScreen = () => {
+const EmergencyScreen = ({ navigation }) => {
 
   return <>
     <SafeAreaView>
       <View>
 
-        <CommonComponent />
+        <CommonComponent navigation={navigation}/>
 
         <SendEmergencyComponent />
 

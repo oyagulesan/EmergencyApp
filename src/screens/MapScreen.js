@@ -9,7 +9,9 @@ import {
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 import MapComponent from '../components/MapComponent';
 
-const HomeScreen = () => {
+const MapScreen = ({ navigation }) => {
+
+  console.log('..map screen navigation...', navigation );
 
   const requestPermission = async () => {
     console.log('...request perm...');
@@ -79,7 +81,7 @@ const HomeScreen = () => {
   return <>
         <SafeAreaView>
           <View>
-            <MapComponent />
+            <MapComponent navigation={navigation}/>
           </View>
         </SafeAreaView>
   </>
@@ -89,4 +91,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default HomeScreen;
+export default MapScreen;

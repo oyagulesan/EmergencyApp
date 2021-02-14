@@ -9,6 +9,9 @@ import { Linking } from 'react-native';
 
 export const translations = new LocalizedStrings({
   'en': {
+    done: 'DONE',
+    next: 'NEXT',
+    skip: 'SKIP',
     appTitle: 'EMERGENCY APP',
     title: 'EMERGENCY',
     selectEvent: 'Please select event',
@@ -28,6 +31,9 @@ export const translations = new LocalizedStrings({
     checkPerm: 'Please check location service permission and try again'
   },
   'tr': {
+    done: 'TAMAM',
+    next: 'SONRAKİ',
+    skip: 'ATLA',
     appTitle: 'ACİL DURUM UYGULAMASI',
     title: 'ACİL DURUM',
     selectEvent: 'Lütfen acil durumu seçiniz',

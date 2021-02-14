@@ -15,8 +15,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import CONFIG from '../config/config';
 import axios from 'axios';
 
-const MapComponent = () => {
-    const { state: { translations, lang, emergencyData, headers, msg }, setLang, setMsg, resetMsg } = useContext(AppContext);
+const MapComponent = ({ navigation }) => {
+    const { state: { translations, lang, emergencyData, headers, msg }, 
+        setLang, setMsg, initialize, setIsInit } = useContext(AppContext);
   
     const [ showDemands, setShowDemands ] = useState(false);
     const [ showSupplies, setShowSupplies ] = useState(false);
@@ -38,7 +39,11 @@ const MapComponent = () => {
     const toRad = (x) => {
         return x * Math.PI / 180;
       }
-
+    const navigateToAppIntro = () => {
+        setIsInit(true);
+        navigation.navigate('AppIntro');
+     }
+    
     const haversineDistance = (coords1, coords2) => {    
         const lon1 = parseFloat(coords1.longitude);
         const lat1 = parseFloat(coords1.latitude);
@@ -79,8 +84,9 @@ const MapComponent = () => {
                         });
                         setFacilities(resp.data);
                         // Find closest facility for selected event
-                        const cfl = resp.data.reduce((prev, curr) =>
-                            haversineDistance(prev, coords.coords) > haversineDistance(curr, coords.coords) ? curr : prev);
+                        const cfl = resp.data && resp.data.length > 1 ? resp.data.reduce((prev, curr) =>
+                            haversineDistance(prev, coords.coords) > haversineDistance(curr, coords.coords) ? curr : prev)
+                        : resp.data && resp.data.length == 1 ? resp.data[0] : null;
                         console.log('...cfl: ', cfl);
                         setClosestFac(cfl);
                     } catch (ex) {
@@ -164,12 +170,14 @@ const MapComponent = () => {
 
     return (<>
             <View style={{ height: 60, flexDirection: 'row', backgroundColor: '#48f'}}>
-              <Image style={{ flex: 1, height: 60 }}
-                  source={require('../assets/ic_launcher.png')}
-              />
-              <Text style={{ flex: 3, color: '#fff', fontSize: 20, 
+                <TouchableOpacity style={{ flex: 2, height: 60 }} onPress={initialize}>
+                    <Image style={{ flex: 1, height: 60 }}
+                    source={require('../assets/ic_launcher.png')}
+                    />
+                </TouchableOpacity>
+              <Text style={{ flex: 6, color: '#fff', fontSize: 20, 
                 fontWeight: 'bold', textAlign: 'center', marginTop: 10 }}>{translations.appTitle}</Text>
-              <TouchableOpacity style={{ flex: 1, marginTop: 5 }} onPress={() => switchLang(lang, setLang)}>
+              <TouchableOpacity style={{ flex: 2, marginTop: 5 }} onPress={() => switchLang(lang, setLang)}>
                   <View style={{ marginTop: 10,
                       flexDirection: 'row-reverse', flex: 1
                   }} >
@@ -186,6 +194,13 @@ const MapComponent = () => {
                       source={require('../assets/turkey-flag-icon-32.png')}
                       />
                   </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={{ flex: 1, marginTop: 10 }} onPress={navigateToAppIntro}>
+                <Icon
+                name="question"
+                size={25}
+                color="white"
+                />
               </TouchableOpacity>
             </View>
 

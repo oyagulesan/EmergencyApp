@@ -7,15 +7,16 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Picker } from '@react-native-community/picker';
 import AnimatedLoader from "react-native-animated-loader";
 import { switchLang, Context as AppContext } from '../context/AppContext';
 import { showMessage, hideMessage } from "react-native-flash-message";
 
-const CommonComponent = (props) => {
+const CommonComponent = ({ navigation }) => {
 
-  const { state: { translations, lang, msg, emergencyData: { loading, event, eventList } }, setEvent, setLang, setMsg, resetMsg } = useContext(AppContext);
+  const { state: { translations, lang, msg, emergencyData: { loading, event, eventList } }, 
+    initialize, setIsInit, setEvent, setLang, setMsg, resetMsg } = useContext(AppContext);
 
   let tmr = null;
 
@@ -35,6 +36,11 @@ const CommonComponent = (props) => {
     }
 
   }, [msg]);
+
+  const navigateToAppIntro = () => {
+    setIsInit(true);
+    navigation.navigate('AppIntro');
+  }
 
   const FadeInView = (props) => {
     const [anim, setAnim] = useState(new Animated.Value(0));
@@ -86,27 +92,28 @@ const CommonComponent = (props) => {
 
   return <>
 
-    { props.dontShow == null && loading ? <AnimatedLoader
+    { loading ? <AnimatedLoader
       visible={true}
       overlayColor="rgba(255,255,255,0.75)"
       source={require("../../res-29574-dot-loader-3.json")}
       animationStyle={styles.lottie}
       speed={1}
     /> : null}
-    { props.dontShow ? null :
       <View
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>
 
         <View style={{ height: 60, flexDirection: 'row', backgroundColor: '#48f' }}>
-          <Image style={{ flex: 1, height: 60 }}
-            source={require('../assets/ic_launcher.png')}
-          />
+          <TouchableOpacity style={{ flex: 2, height: 60 }} onPress={initialize}>
+            <Image style={{ flex: 1, height: 60 }}
+              source={require('../assets/ic_launcher.png')}
+            />
+          </TouchableOpacity>
           <Text style={{
-            flex: 3, color: '#fff', fontSize: 20,
+            flex: 5, color: '#fff', fontSize: 20,
             fontWeight: 'bold', textAlign: 'center', marginTop: 10
           }}>{translations.appTitle}</Text>
-          <TouchableOpacity style={{ flex: 1, marginTop: 5 }} onPress={() => switchLang(lang, setLang)}>
+          <TouchableOpacity style={{ flex: 2, marginTop: 5 }} onPress={() => switchLang(lang, setLang)}>
             <View style={{
               marginTop: 10,
               flexDirection: 'row-reverse', flex: 1
@@ -125,6 +132,14 @@ const CommonComponent = (props) => {
               />
             </View>
           </TouchableOpacity>
+          <TouchableOpacity style={{ flex: 1, marginTop: 5 }} onPress={navigateToAppIntro}>
+            <Icon
+              name="question"
+              size={25}
+              color="white"
+            />
+          </TouchableOpacity>
+
         </View>
 
         <FadeInView>
@@ -162,7 +177,7 @@ const CommonComponent = (props) => {
           : null
         }
       </View>
-    }
+    
   </>
 }
 
