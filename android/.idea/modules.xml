@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/geolocation/android/@react-native-community_geolocation.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/geolocation/android/@react-native-community_geolocation.iml" group="EmergencyApp/@react-native-community_geolocation" />
-      <module fileurl="file://$PROJECT_DIR$/EmergencyApp.iml" filepath="$PROJECT_DIR$/EmergencyApp.iml" group="EmergencyApp" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="EmergencyApp/app" />
-      <module fileurl="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/lottie-react-native.iml" filepath="$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/lottie-react-native.iml" group="EmergencyApp/lottie-react-native" />
-      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/geolocation/android/react-native-community_geolocation.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/geolocation/android/react-native-community_geolocation.iml" group="EmergencyApp/react-native-community_geolocation" />
-      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/picker/android/react-native-community_picker.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/picker/android/react-native-community_picker.iml" group="EmergencyApp/react-native-community_picker" />
-      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-geolocation-service/android/react-native-geolocation-service.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-geolocation-service/android/react-native-geolocation-service.iml" group="EmergencyApp/react-native-geolocation-service" />
+      <module fileurl="file://$PROJECT_DIR$/EmergencyApp.iml" filepath="$PROJECT_DIR$/EmergencyApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-255269900/EmergencyApp.@react-native-community_geolocation.iml" filepath="$PROJECT_DIR$/.idea/modules/-255269900/EmergencyApp.@react-native-community_geolocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/EmergencyApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/EmergencyApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1404329444/EmergencyApp.lottie-react-native.iml" filepath="$PROJECT_DIR$/.idea/modules/1404329444/EmergencyApp.lottie-react-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1896297112/EmergencyApp.react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1896297112/EmergencyApp.react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-255269900/EmergencyApp.react-native-community_geolocation.iml" filepath="$PROJECT_DIR$/.idea/modules/-255269900/EmergencyApp.react-native-community_geolocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-537729888/EmergencyApp.react-native-community_picker.iml" filepath="$PROJECT_DIR$/.idea/modules/-537729888/EmergencyApp.react-native-community_picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-787380214/EmergencyApp.react-native-geolocation-service.iml" filepath="$PROJECT_DIR$/.idea/modules/-787380214/EmergencyApp.react-native-geolocation-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/658479842/EmergencyApp.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/658479842/EmergencyApp.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-776774723/EmergencyApp.react-native-localization.iml" filepath="$PROJECT_DIR$/.idea/modules/-776774723/EmergencyApp.react-native-localization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1222821425/EmergencyApp.react-native-maps.iml" filepath="$PROJECT_DIR$/.idea/modules/1222821425/EmergencyApp.react-native-maps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/809988256/EmergencyApp.react-native-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/809988256/EmergencyApp.react-native-permissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/520371706/EmergencyApp.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/520371706/EmergencyApp.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1704536925/EmergencyApp.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-1704536925/EmergencyApp.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/258291764/EmergencyApp.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/258291764/EmergencyApp.react-native-vector-icons.iml" />
     </modules>
   </component>
 </project>
