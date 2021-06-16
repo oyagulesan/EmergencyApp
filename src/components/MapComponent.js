@@ -34,6 +34,7 @@ const MapComponent = ({ navigation }) => {
     const [ supplies, setSupplies ] = useState(null);
     const [ emergencies, setEmergencies ] = useState(null);
     const [ injuries, setInjuries ] = useState(null);
+    const [ region, setRegion ] = useState({latitude: 40.99, longitude: 29.2, longitudeDelta: 0.15, latitudeDelta: 0.15});
 
     const GOOGLE_MAPS_APIKEY = 'AIzaSyD5pdtn6hxjLQndPMyDbC0Kl3KeItm54cI';
     const toRad = (x) => {
@@ -67,11 +68,10 @@ const MapComponent = ({ navigation }) => {
       }
       
     const getUserLoc = async () => {
-        console.log('....getUserLoc called...');
         Geolocation.getCurrentPosition(async (coords) => {
           if (coords && coords.coords && coords.coords.latitude && coords.coords.longitude) {
             setUserLoc(coords.coords);
-            console.log('...user loc set as ', coords.coords);
+            setRegion({latitude: coords.coords.latitude, longitude: coords.coords.longitude, latitudeDelta: 0.1, longitudeDelta: 0.1});
             if (emergencyData.event) {
                 // Find facilities for selected event's city
                 if (emergencyData.event.city) {
@@ -87,7 +87,7 @@ const MapComponent = ({ navigation }) => {
                         const cfl = resp.data && resp.data.length > 1 ? resp.data.reduce((prev, curr) =>
                             haversineDistance(prev, coords.coords) > haversineDistance(curr, coords.coords) ? curr : prev)
                         : resp.data && resp.data.length == 1 ? resp.data[0] : null;
-                        console.log('...cfl: ', cfl);
+                        console.log('...location: ', coords.coords, '..cfl: ', cfl, '...resp: ', resp.data.length);
                         setClosestFac(cfl);
                     } catch (ex) {
                         console.log(ex);
@@ -168,6 +168,13 @@ const MapComponent = ({ navigation }) => {
         getUserLoc();
     }, [emergencyData.event]);
 
+    useEffect(() => {
+        // Set map's center
+        if (userLoc && userLoc.latitude && userLoc.longitude) {
+
+        }
+    }, [userLoc]);
+
     return (<>
             <View style={{ height: 60, flexDirection: 'row', backgroundColor: '#48f'}}>
                 <TouchableOpacity style={{ flex: 2, height: 60 }} onPress={initialize}>
@@ -208,12 +215,7 @@ const MapComponent = ({ navigation }) => {
         <MapView
             provider={PROVIDER_GOOGLE}
             style={styles.map}
-            initialRegion={{
-                latitude: userLoc ? userLoc.latitude : 40.78825,
-                longitude: userLoc ? userLoc.longitude : 29.4324,
-                latitudeDelta: 1,
-                longitudeDelta: 1,
-            }}
+            region={region}              
             showUserLocation={true} >
             {userLoc ?
             <Marker coordinate={{
