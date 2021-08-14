@@ -5,7 +5,7 @@ INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/Andro
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:1:1-34:12
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:1:1-34:12
 MERGED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:1:1-34:12
-MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:8:1-18:12
+MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/fa9d249d56579007dba70f8ee4dd5b3f/flipper-network-plugin-0.33.1/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/5a1065d4748ae359265a740b2069d44b/flipper-fresco-plugin-0.33.1/AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-vector-icons] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -20,7 +20,7 @@ MERGED from [:react-native-maps] /Users/oyabenlioglugulesan/EmergencyApp/node_mo
 MERGED from [:react-native-permissions] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-reanimated] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-screens] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ae438101d17920b3abeb8fd0100a49cc/jetified-react-native-0.62.2/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/642fc4c045832a4a5f4733f970ed5c93/jetified-react-native-0.62.2/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/055a171d10c43231a2795117ecd4c3fd/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1ed26cdc1f47a6754ce1546799dd43a1/android-jsc-r245459/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.fresco:flipper:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/c180792e3f393fe4453d9c695595b3ef/flipper-2.0.0/AndroidManifest.xml:2:1-9:12
@@ -44,7 +44,7 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/oyabenliog
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6d45d9e0505112f0eec54f8796757f91/play-services-base-17.0.0/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/2570ee8cdf5a2a7fe062aa117d18a819/play-services-places-placereport-17.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6158af36f33dab56a52a643764c9ece8/play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/33fa28bb10cd4d05c9c7b76910e2f1d7/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/57896e3f8d3af1ea30640dfb96021293/fragment-1.2.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/420bad76d144494602cd19d31fe9bd87/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -67,9 +67,9 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/oyabenlioglugulesan/.g
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/21edf3c6b4f2eecf7b9eccd8e17daad5/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/b9668bd4c5473f0298eda6562aec7b99/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/596fc679c0cd5d4e81c0bb73a34a2445/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.soloader:annotation:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/562a4d899b3a7a711a398f7636c8c187/annotation-0.8.2/AndroidManifest.xml:2:1-13:12
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/85a1e7ca4bce672846d60d846f714d46/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6b9c4c049cce0996946ca36cb255af29/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -92,8 +92,8 @@ INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/Andr
 		ADDED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:4:5-67
-MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:15:5-67
-MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:15:5-67
+MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:15:5-67
+MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:15:5-67
 MERGED from [:lottie-react-native] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 MERGED from [:lottie-react-native] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 MERGED from [:react-native-maps] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
@@ -116,8 +116,8 @@ application
 ADDED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:8:5-33:19
 MERGED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:8:5-33:19
 MERGED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml:8:5-33:19
-MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ae438101d17920b3abeb8fd0100a49cc/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ae438101d17920b3abeb8fd0100a49cc/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/642fc4c045832a4a5f4733f970ed5c93/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/642fc4c045832a4a5f4733f970ed5c93/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a682a4f61b53a5eb0b34ff17728f4b20/soloader-0.8.2/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a682a4f61b53a5eb0b34ff17728f4b20/soloader-0.8.2/AndroidManifest.xml:11:5-20
 MERGED from [com.airbnb.android:lottie:3.4.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/8b8f0c202453460cb2342d374e554581/lottie-3.4.0/AndroidManifest.xml:9:5-20
@@ -134,14 +134,14 @@ MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Us
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/2570ee8cdf5a2a7fe062aa117d18a819/play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6158af36f33dab56a52a643764c9ece8/play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6158af36f33dab56a52a643764c9ece8/play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/4f509a65121478d6153615d7ef5b7c5f/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/4f509a65121478d6153615d7ef5b7c5f/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ee4a69f4f726969bc5c4f11a1f23bd91/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ee4a69f4f726969bc5c4f11a1f23bd91/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:7:5-11:19
 MERGED from [com.facebook.soloader:annotation:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/562a4d899b3a7a711a398f7636c8c187/annotation-0.8.2/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:annotation:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/562a4d899b3a7a711a398f7636c8c187/annotation-0.8.2/AndroidManifest.xml:11:5-20
 	android:appComponentFactory
@@ -216,8 +216,8 @@ uses-sdk
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/main/AndroidManifest.xml
-MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:11:5-13:41
-MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/fa9d249d56579007dba70f8ee4dd5b3f/flipper-network-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/fa9d249d56579007dba70f8ee4dd5b3f/flipper-network-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/5a1065d4748ae359265a740b2069d44b/flipper-fresco-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
@@ -246,8 +246,8 @@ MERGED from [:react-native-reanimated] /Users/oyabenlioglugulesan/EmergencyApp/n
 MERGED from [:react-native-reanimated] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] /Users/oyabenlioglugulesan/EmergencyApp/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ae438101d17920b3abeb8fd0100a49cc/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ae438101d17920b3abeb8fd0100a49cc/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/642fc4c045832a4a5f4733f970ed5c93/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.62.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/642fc4c045832a4a5f4733f970ed5c93/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/055a171d10c43231a2795117ecd4c3fd/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/055a171d10c43231a2795117ecd4c3fd/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [org.webkit:android-jsc:r245459] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1ed26cdc1f47a6754ce1546799dd43a1/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
@@ -294,8 +294,8 @@ MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Us
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/2570ee8cdf5a2a7fe062aa117d18a819/play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6158af36f33dab56a52a643764c9ece8/play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6158af36f33dab56a52a643764c9ece8/play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/33fa28bb10cd4d05c9c7b76910e2f1d7/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/33fa28bb10cd4d05c9c7b76910e2f1d7/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/57896e3f8d3af1ea30640dfb96021293/fragment-1.2.1/AndroidManifest.xml:20:5-22:41
@@ -340,12 +340,12 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/oyabenliog
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/b9668bd4c5473f0298eda6562aec7b99/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/596fc679c0cd5d4e81c0bb73a34a2445/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/596fc679c0cd5d4e81c0bb73a34a2445/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:5:5-43
 MERGED from [com.facebook.soloader:annotation:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/562a4d899b3a7a711a398f7636c8c187/annotation-0.8.2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.soloader:annotation:0.8.2] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/562a4d899b3a7a711a398f7636c8c187/annotation-0.8.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/85a1e7ca4bce672846d60d846f714d46/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/85a1e7ca4bce672846d60d846f714d46/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6b9c4c049cce0996946ca36cb255af29/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6b9c4c049cce0996946ca36cb255af29/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/AndroidManifest.xml
 INJECTED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
@@ -359,9 +359,9 @@ ADDED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/Android
 	android:name
 		ADDED from /Users/oyabenlioglugulesan/EmergencyApp/android/app/src/debug/AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:16:5-76
+ADDED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:16:5-76
 	android:name
-		ADDED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/9deb471bd64b35af59973ba1617fe88f/jetified-flipper-0.33.1/AndroidManifest.xml:16:22-73
+		ADDED from [com.facebook.flipper:flipper:0.33.1] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/0ea233492380c70cde31b5e0e7b041d5/jetified-flipper-0.33.1/AndroidManifest.xml:16:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/dcb0caa0b7590c92c93c5bf3cc09a745/play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
 	android:name
@@ -381,10 +381,10 @@ ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/oyabenliogl
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/6d45d9e0505112f0eec54f8796757f91/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:8:9-10:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/ecba40371f38264990a6f0c8fd86364d/jetified-android-maps-utils-0.5/AndroidManifest.xml:8:9-10:69
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/a033ca02b8eb173c9349cee6f9ab8333/jetified-android-maps-utils-0.5/AndroidManifest.xml:8:9-10:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58

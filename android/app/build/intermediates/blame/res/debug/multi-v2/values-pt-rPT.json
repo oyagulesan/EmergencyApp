@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "/Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/1980bd11ae5fec1a7dcb8758e882b9e0/jetified-play-services-basement-17.0.0/res/values-pt-rPT/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "203",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4037",
-                        "endColumns": "203",
-                        "endOffsets": "4236"
-                    }
-                },
-                {
                     "source": "/Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/4f509a65121478d6153615d7ef5b7c5f/core-1.1.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "from": {
                         "startLines": "2",
@@ -69,6 +52,23 @@
                         "startOffsets": "5756",
                         "endColumns": "100",
                         "endOffsets": "5852"
+                    }
+                },
+                {
+                    "source": "/Users/oyabenlioglugulesan/.gradle/caches/transforms-2/files-2.1/eb51666c51ba5a05d0c73cd2a38b7100/jetified-play-services-basement-17.0.0/res/values-pt-rPT/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4037",
+                        "endColumns": "203",
+                        "endOffsets": "4236"
                     }
                 }
             ]
