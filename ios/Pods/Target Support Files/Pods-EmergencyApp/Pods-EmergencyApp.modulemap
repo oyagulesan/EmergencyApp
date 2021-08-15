@@ -1,6 +1,0 @@
-module Pods_EmergencyApp {
-  umbrella header "Pods-EmergencyApp-umbrella.h"
-
-  export *
-  module * { export * }
-}

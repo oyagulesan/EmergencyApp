@@ -1,6 +1,0 @@
-module Pods_EmergencyApp_EmergencyAppTests {
-  umbrella header "Pods-EmergencyApp-EmergencyAppTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
